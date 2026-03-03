@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block title %}Analytics{% endblock %}
+
+{% block content %}
+
+<div class="section-title">Application Insights</div>
+<div class="subtle">Visual overview of your application progress.</div>
+
+<div class="card chart-card">
+    <div class="chart-wrapper">
+        <canvas id="statusChart"></canvas>
+    </div>
+</div>
+
+<div class="grid">
+
+    <div class="card">
+        <h3>Applied</h3>
+        <p>{{ applied }} applications submitted.</p>
+    </div>
+
+    <div class="card">
+        <h3>Interview</h3>
+        <p>{{ interview }} interviews scheduled.</p>
+    </div>
+
+    <div class="card">
+        <h3>Rejected</h3>
+        <p>{{ rejected }} applications declined.</p>
+    </div>
+
+    <div class="card">
+        <h3>Offers</h3>
+        <p>{{ offer }} offers received.</p>
+    </div>
+
+</div>
+
+<script>
+const ctx = document.getElementById('statusChart');
+
+new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+        labels: ['Applied', 'Interview', 'Rejected', 'Offer'],
+        datasets: [{
+            data: [
+                {{ applied }},
+                {{ interview }},
+                {{ rejected }},
+                {{ offer }}
+            ],
+            backgroundColor: [
+                '#3b82f6',
+                '#f59e0b',
+                '#ef4444',
+                '#10b981'
+            ],
+            borderWidth: 0
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        plugins: {
+            legend: {
+                position: 'bottom'
+            }
+        }
+    }
+});
+</script>
+
+{% endblock %}

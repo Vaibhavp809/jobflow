@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Applications{% endblock %}
+
+{% block content %}
+
+<div class="card">
+    {% for job in jobs %}
+        <div style="display:flex; justify-content:space-between; margin-bottom:15px;">
+            <div>
+                <strong>{{ job.company }}</strong> - {{ job.role }}
+                <br>
+                <span class="badge {{ job.status }}">{{ job.status }}</span>
+            </div>
+        </div>
+    {% empty %}
+        <p>No applications yet.</p>
+    {% endfor %}
+</div>
+
+{% endblock %}

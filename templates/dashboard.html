@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+
+<div class="grid">
+
+    <div class="card stat-card blue">
+        <h2>{{ total }}</h2>
+        <p>Total Applications</p>
+    </div>
+
+    <div class="card stat-card orange">
+        <h2>{{ applied }}</h2>
+        <p>Applied</p>
+    </div>
+
+    <div class="card stat-card purple">
+        <h2>{{ interview }}</h2>
+        <p>Interview</p>
+    </div>
+
+    <div class="card stat-card green">
+        <h2>{{ offer }}</h2>
+        <p>Offers</p>
+    </div>
+
+</div>
+
+{% endblock %}

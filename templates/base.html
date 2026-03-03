@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JobFlow</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8fafc;
+            display: flex;
+        }
+
+        .sidebar {
+            width: 220px;
+            background: #111827;
+            min-height: 100vh;
+            padding: 30px 20px;
+            color: white;
+        }
+
+        .sidebar h2 {
+            margin-bottom: 40px;
+            font-weight: 700;
+            font-size: 22px;
+        }
+
+        .sidebar a {
+            display: block;
+            color: #d1d5db;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .main {
+            flex: 1;
+            padding: 40px;
+        }
+
+        .header {
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            margin-bottom: 25px;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+        }
+
+        button {
+            background: #111827;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        input, select {
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #e5e7eb;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        .badge {
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            color: white;
+        }
+
+        .Applied { background: #3b82f6; }
+        .Interview { background: #f59e0b; }
+        .Rejected { background: #ef4444; }
+        .Offer { background: #10b981; }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat h2 {
+            font-size: 26px;
+            margin-bottom: 5px;
+        }
+        .stat-card {
+    color: white;
+    text-align: center;
+    transition: 0.3s ease;
+}
+
+.stat-card h2 {
+    font-size: 32px;
+    margin-bottom: 5px;
+}
+
+.stat-card p {
+    opacity: 0.9;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px) scale(1.02);
+}
+
+.blue {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+}
+
+.orange {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+}
+
+.purple {
+    background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+}
+
+.green {
+    background: linear-gradient(135deg, #10b981, #047857);
+}.section-title {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.subtle {
+    color: #6b7280;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.chart-card {
+    padding: 30px;
+}
+
+.about-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.about-box {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    transition: 0.3s;
+}
+
+.about-box:hover {
+    transform: translateY(-4px);
+}
+
+.tag {
+    display: inline-block;
+    padding: 4px 10px;
+    background: #e5e7eb;
+    border-radius: 20px;
+    font-size: 12px;
+    margin: 5px 5px 0 0;
+}
+.chart-wrapper {
+    max-width: 450px;
+    margin: auto;
+}
+
+.chart-wrapper canvas {
+    width: 100% !important;
+    height: auto !important;
+}
+    </style>
+</head>
+<body>
+
+<div class="sidebar">
+    <h2>JobFlow</h2>
+    <a href="/">Dashboard</a>
+    <a href="/applications/">Applications</a>
+    <a href="/add/">Add Job</a>
+    <a href="/analytics/">Analytics</a>
+    <a href="/about/">About</a>
+</div>
+
+<div class="main">
+    <div class="header">
+        <h1>{% block title %}Dashboard{% endblock %}</h1>
+    </div>
+
+    {% block content %}{% endblock %}
+</div>
+
+</body>
+</html>
