@@ -57,6 +57,9 @@ Thumbs.db
 .DS_Store
 Thumbs.db
 
+# Custom
+unwanted
+
 # Testing
 .pytest_cache/
 .coverage
